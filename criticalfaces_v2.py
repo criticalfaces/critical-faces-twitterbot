@@ -34,6 +34,10 @@ def convert(seconds):
       
     return "%d-%02d-%02d" % (hour, minutes, seconds)
 
+def get_random_time(seconds):
+    r_time = int((seconds * random()))
+    return r_time
+
 def generate_image_and_tweet():
     yt = YouTubeDataAPI(environ['YOUTUBE_KEY'])
 
@@ -41,7 +45,10 @@ def generate_image_and_tweet():
 
     random_index = int(random() * (len(video_ids)-1))
     random_video = video_ids[random_index]
-    random_time =  int((11700 * random()))
+    random_time =  get_random_time(11700)
+    while(random_time > 5700 and random_time < 7500):
+        random_time = get_random_time(11700)
+    #0-5700 to 7500 - 11700
 
     print(random_video['video_id'])
     link = 'https://youtu.be/' + random_video['video_id'] + '?t=' + str(random_time)
@@ -133,7 +140,7 @@ def generate_image_and_tweet():
     api.update_with_media(KEPS, status)
 
 
-schedule.every(10).minutes.do(generate_image_and_tweet)
+schedule.every(30).minutes.do(generate_image_and_tweet)
 
 while True:
     schedule.run_pending()
