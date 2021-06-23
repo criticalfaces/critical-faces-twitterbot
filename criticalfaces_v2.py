@@ -64,7 +64,7 @@ def generate_image_and_tweet():
     options.add_argument('autoplay-policy=no-user-gesture-required')
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
 
-    print( executable_path=str(os.environ.get('CHROMEDRIVER_PATH'))) 
+    print(str(os.environ.get('CHROMEDRIVER_PATH'))) 
 
     driver = webdriver.Chrome(
         executable_path=str(os.environ.get('CHROMEDRIVER_PATH')),
