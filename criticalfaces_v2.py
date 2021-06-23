@@ -35,7 +35,7 @@ def convert(seconds):
     return "%d-%02d-%02d" % (hour, minutes, seconds)
 
 def generate_image_and_tweet():
-    yt = YouTubeDataAPI(environ['YOUTUBE-KEY'])
+    yt = YouTubeDataAPI(environ['YOUTUBE_KEY'])
 
     video_ids = yt.get_videos_from_playlist_id('PL1tiwbzkOjQxD0jjAE7PsWoaCrs0EkBH2')
 
