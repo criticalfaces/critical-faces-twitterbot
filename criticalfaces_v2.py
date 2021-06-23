@@ -133,7 +133,7 @@ def generate_image_and_tweet():
     api.update_with_media(KEPS, status)
 
 
-schedule.every(1).minutes.do(generate_image_and_tweet)
+schedule.every().hour.do(generate_image_and_tweet)
 
 
 while True:
