@@ -63,7 +63,7 @@ def generate_image_and_tweet():
     options.add_argument("window-size=1920x1080")
     options.add_argument('autoplay-policy=no-user-gesture-required')
 
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(os.path.join(os.path.dirname(__file__), 'chromedriver.exe'), options=options)
     driver.get(link)
     driver.execute_script(
         'player = document.getElementById("movie_player");'
@@ -127,7 +127,7 @@ def generate_image_and_tweet():
     api.update_with_media(KEPS, status)
 
 
-schedule.every(30).minutes.do(generate_image_and_tweet)
+schedule.every(5).minutes.do(generate_image_and_tweet)
 
 
 while True:
