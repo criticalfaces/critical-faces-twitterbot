@@ -63,7 +63,12 @@ def generate_image_and_tweet():
     options.add_argument("window-size=1920x1080")
     options.add_argument('autoplay-policy=no-user-gesture-required')
 
-    driver = webdriver.Chrome(os.path.join(os.path.dirname(__file__), 'chromedriver.exe'), options=options)
+    print(  os.path.join(os.path.dirname(__file__), 'chromedriver.exe') ) 
+
+    driver = webdriver.Chrome(
+    os.path.join(os.path.dirname(__file__), 'chromedriver.exe'),
+     options=options
+    )
     driver.get(link)
     driver.execute_script(
         'player = document.getElementById("movie_player");'
