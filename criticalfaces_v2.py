@@ -65,10 +65,7 @@ def generate_image_and_tweet():
 
     print(  os.path.join(os.path.dirname(__file__), 'chromedriver.exe') ) 
 
-    driver = webdriver.Chrome(
-    os.path.join(os.path.dirname(__file__), 'chromedriver.exe'),
-     options=options
-    )
+    driver = webdriver.Chrome( options=options )
     driver.get(link)
     driver.execute_script(
         'player = document.getElementById("movie_player");'
