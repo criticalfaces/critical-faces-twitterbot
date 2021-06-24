@@ -135,12 +135,12 @@ def generate_image_and_tweet():
     api = tweepy.API(auth)
 
     nice_time_stamp = nice_time_stamp.replace('-',':')
-    status = f'Episode {random_index}, Timestamp: {nice_time_stamp}'
+    status = f'Episode {random_index}, Timestamp: {nice_time_stamp}' + '#CriticalRole'
 
     api.update_with_media(KEPS, status)
 
 
-schedule.every(30).minutes.do(generate_image_and_tweet)
+schedule.every().hour.do(generate_image_and_tweet)
 
 while True:
     schedule.run_pending()
